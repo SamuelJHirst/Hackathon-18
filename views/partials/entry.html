@@ -1,0 +1,12 @@
+<tr id="product-{{ product.ean }}">
+    <td scope="row">{{ product.ean }}</td>
+    <td>{{ product.status }}</td>
+    <td>{{ product.name }}</td>
+    <td>£{{ product.price }}</td>
+    <td>
+        <a href="/product/{{ product.ean }}" class="btn btn-success my-2 my-sm-0" target="_blank">View Product</a>
+        <button type="button" class="btn btn-info" id="product-edit" data-ean="{{ product.ean }}">Edit Product</button>
+        <button type="button" class="btn btn-warning" id="product-status" data-ean="{{ product.ean }}">Change Status</button>
+        <button type="button" class="btn btn-danger" id="product-delete" data-ean="{{ product.ean }}">Delete</button>
+    </td>
+</tr>

@@ -1,0 +1,13 @@
+{% extends "../template.html" %}
+
+{% block content %}
+
+<div class="row" style="margin: 0; padding: 0 10px;">
+    {% for product in products %}
+        {% if product.status == "Live" %}
+            {% include "./partials/product.html" %}
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

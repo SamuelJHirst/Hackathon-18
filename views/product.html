@@ -1,0 +1,23 @@
+{% extends "../template.html" %}
+
+{% block content %} 
+
+<div class="row" style="margin: 0; height: calc(100% - 112px);">
+    <div class="col text-center">
+        <img src="/img/products/{{ product.ean }}-2.png" alt="{{ product.name }}" class="img-fluid" style="position: absolute; top: 50%; left:50%; transform: translate(-50%,-50%);" />
+    </div>
+    <div class="col">
+        <br />
+        <br />
+        <h2>{{ product.name }}</h2>
+        <form class="form-inline" style="margin: 0; position: absolute; right: 15px;">
+            <a href="#" class="btn btn-primary disabled" style="position: relative; bottom: 42px;">Add to Basket</a>
+        </form>
+        <h5 class="text-muted">£{{ product.price }}</h5>
+        <br />
+        <hr />
+        <p>{{ product.description }}</p>
+    </div>
+</div>
+
+{% endblock %}

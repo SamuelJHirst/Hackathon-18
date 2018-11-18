@@ -1,0 +1,110 @@
+{% extends "../template.html" %}
+
+{% block content %}
+
+<div class="row" style="margin: 10px 0 ; padding: 0 10px; height: 36px;">
+    <button type="button" class="btn btn-success" style="position: absolute; right: 10px;" data-toggle="modal" data-target="#add"><i class="fas fa-plus-circle"></i> Add</button>
+</div>
+
+<div class="row" style="margin: 0; padding: 0 10px;">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">EAN</th>
+            <th scope="col">Status</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody id="listing">
+            {% for product in products %}
+                {% include "./partials/entry.html" %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="add" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Add Product</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="ean" min="100000000000" max="999999999999" placeholder="Enter EAN">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="description" rows="3" placeholder="Enter Description"></textarea>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">£</span>
+                    </div>
+                    <input type="number" class="form-control" id="price" step="0.01" placeholder="Enter Price">
+                </div>
+                <div class="form-group">
+                    <label for="image">Upload Image</label>
+                    <input type="file" accept="image/png" class="form-control-file" id="image" >
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="clear" class="btn btn-warning">Clear</button>
+            <button type="button" id="submit" class="btn btn-success">Submit</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Edit Product</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <input type="number" class="form-control" id="edit-ean" min="100000000000" max="999999999999" placeholder="Enter EAN" disabled>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="edit-name" placeholder="Enter Name">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="edit-description" rows="3" placeholder="Enter Description"></textarea>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">£</span>
+                    </div>
+                    <input type="number" class="form-control" id="edit-price" step="0.01" placeholder="Enter Price">
+                </div>
+                <div class="form-group">
+                    <label for="image">Upload Image</label>
+                    <input type="file" accept="image/png" class="form-control-file" id="edit-image" >
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="clear" class="btn btn-warning">Clear</button>
+            <button type="button" id="complete" class="btn btn-success">Submit</button>
+        </div>
+        </div>
+    </div>
+</div>    
+
+<script src="/js/products.js"></script>
+
+{% endblock %}

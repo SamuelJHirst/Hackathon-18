@@ -1,0 +1,16 @@
+<div class="col-sm" style="margin: 10px 0;">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="/img/products/{{ product.ean }}-1.png" alt="Sample Image">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">£{{ product.price }}</h6>
+            <div style="height: 54px;">
+                <p class="card-text last-line" style="height: 54px;">{{ product.description }}</p>
+            </div>            
+            <div class="text-center">
+                <a href="/product/{{ product.ean }}" class="btn btn-secondary" target="_blank">View More</a>
+                <a href="#" class="btn btn-primary disabled">Add to Basket</a>
+            </div>
+        </div>
+    </div>
+</div>
